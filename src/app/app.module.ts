@@ -1,14 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './components/layout/foooter/footer.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { BlankComponent } from './components/layout/blank/blank.component';
+import { FullComponent } from './components/layout/full/full.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FullComponent,
+    BlankComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgbModule,
+    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules }),
   ],
   providers: [],
   bootstrap: [AppComponent]
