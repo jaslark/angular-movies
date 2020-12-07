@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export abstract class BaseAPIClass {
@@ -42,7 +43,7 @@ export abstract class BaseAPIClass {
       }
     }
     return this.httpClient
-      .get(`${baseUrl}${queryString}`, this.getOptionsJSON())
+      .get(`${environment.serverUrl}${baseUrl}${queryString}`, this.getOptionsJSON())
       .pipe(
         map((body: any) => {
           return body;
@@ -72,7 +73,7 @@ export abstract class BaseAPIClass {
       }
     }
     return this.httpClient
-      .get(`${baseUrl}/${id}${queryString}`, this.getOptionsJSON())
+      .get(`${environment.serverUrl}${baseUrl}/${id}${queryString}`, this.getOptionsJSON())
       .pipe(
         map((body: any) => {
           return body;

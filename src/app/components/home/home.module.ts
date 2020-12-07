@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MovieService } from '../../core/service/movies.service';
 
 import { SwiperModule, SwiperConfigInterface,
   SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -29,6 +30,6 @@ import { HomeComponent } from './home.component';
     SwiperModule
   ],
   declarations: [HomeComponent],
-  providers: [{provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}],
+  providers: [MovieService, {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}],
 })
 export class HomeModule {}
