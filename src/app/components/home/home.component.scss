@@ -1,0 +1,132 @@
+.action-container,
+.content-container {
+  position: relative;
+  // overflow: auto;
+  height: 510px;
+  min-height: 0;
+  z-index: 1;
+  // margin: 8px 16px;
+  // border-radius: 4px;
+  background-color: #fff;
+}
+
+.action-container {
+  padding: 16px;
+}
+
+.horizontal-container,
+.vertical-container {
+  min-height: 0 !important;
+}
+
+.action-button {
+  box-sizing: border-box;
+  width: calc(100% - 16px);
+  min-height: 35px;
+  padding: 4px 16px;
+  margin: 8px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  text-align: center;
+}
+
+.action-button:hover {
+  color: #fff;
+  background-color: #555;
+}
+
+.swiper-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.swiper-slide {
+  color: #aaa;
+  background-color: #eee;
+  position: relative;
+}
+
+.swiper-slide-active {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.9;
+}
+
+.wrap-content-slider {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 2.5rem;
+
+  .card-right {
+    width: 205px;
+    background-color: #100F15;
+    border-color: #3F3E43;
+    margin-right: 2.3rem;
+    margin-top: 2rem;
+
+    .card-body {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 0.85rem;
+    }
+
+    .list-inline {
+      margin-bottom: 0;
+
+      .num {
+        border: 1px solid #848389;
+        padding: 2px;
+        font-size: 12px;
+      }
+    }
+
+    .rating {
+      font-size: 12px;
+      color: #848389;
+      margin-bottom: 0.5rem;
+
+      span {
+        font-size: 13px;
+        color: white;
+      }
+    }
+  }
+
+  .card-left {
+    font-size: 13px;
+    margin-left: 5rem;
+
+    .btn {
+      font-size: 13px;
+    }
+
+    .btn-pink {
+      background: #FF0078;
+      border-color: #FF0078;
+      color: #fff;
+
+      &:hover {
+        color: #FF0078;
+        background: #fff;
+      }
+    }
+
+    .btn-outline-default {
+      border-color: #fff;
+      color: #fff;
+
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+}

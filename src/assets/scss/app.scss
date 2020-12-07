@@ -21,9 +21,86 @@ html {
   min-height: 100%;
   background: white;
 }
-
 /*Style Glyphicons & Typo*/
-a:hover,
-a:focus {
+
+a:focus,
+a:hover {
   text-decoration: none;
+}
+
+input, button, select, optgroup, textarea {
+  font-family: $bodyfont;
+}
+
+app-full-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  #main-wrapper {
+    display: block;
+    margin: auto 0;
+    position: relative;
+  }
+
+  .page-wrapper {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #F8F8F8;
+
+    .container-fluid {
+      // background: $bg-color !important;
+    }
+  }
+
+  .ql-container {
+    height: inherit;
+  }
+}
+
+.btn-link {
+  color: white;
+}
+
+.swiper-pagination-bullet {
+  width: 27px !important;
+  height: 12px !important;
+  border-radius: 4px !important;
+  border-color: transparent !important;
+  background-color: #D8D8D8 !important;
+  opacity: 0.8 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #FF0078 !important;
+}
+
+swiper>.swiper.s-wrapper.swiper-container-horizontal>.swiper-pagination .swiper-pagination-handle .swiper-pagination-bullet.swiper-pagination-bullet-first, swiper>.swiper.s-wrapper.swiper-container-horizontal>.swiper-pagination .swiper-pagination-handle .swiper-pagination-bullet.swiper-pagination-bullet-last {
+  margin: 0 !important;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.text-center {
+  text-align: center;
 }
