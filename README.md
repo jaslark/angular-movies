@@ -11,7 +11,7 @@ Angular Movies was generated with:
 - Angular CLI version 9.1.0
 - Angular 9.1.0
 - Rxjs 6.5.4
-- The Movie DB get Your own api key -> https://www.themoviedb.org
+- The Movie DB https://www.themoviedb.org
 
 ## Prerequisites
 
