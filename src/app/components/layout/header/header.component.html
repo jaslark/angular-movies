@@ -6,9 +6,9 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngbCollapse]="isCollapsed">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav mr-auto">
         </ul>
-        <form class="form-inline my-2 my-lg-0" (submit)="onSubmit()" [formGroup]="searchForm">
+        <form class="form-inline my-2 my-lg-0 search-form" (submit)="onSubmit()" [formGroup]="searchForm">
           <input class="form-control" type="text" placeholder="Search" name="name" formControlName="name" [hidden]="!isInputSearch">
           <button type="button" name="button" class="btn btn btn-link btn-search" (click)="isInputSearch = !isInputSearch" [hidden]="isInputSearch">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

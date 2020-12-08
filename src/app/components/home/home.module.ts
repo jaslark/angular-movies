@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MovieService } from '../../core/service/movies.service';
 
 import { SwiperModule, SwiperConfigInterface,
@@ -27,7 +28,8 @@ import { HomeComponent } from './home.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(HomeRoutes),
-    SwiperModule
+    SwiperModule,
+    InfiniteScrollModule
   ],
   declarations: [HomeComponent],
   providers: [MovieService, {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}],

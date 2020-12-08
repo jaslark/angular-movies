@@ -29,7 +29,7 @@ import { FullComponent } from './components/layout/full/full.component';
     BrowserAnimationsModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules, scrollPositionRestoration: 'enabled' }),
     NgbCollapseModule,
     FormsModule,
     ReactiveFormsModule

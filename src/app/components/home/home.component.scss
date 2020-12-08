@@ -164,6 +164,38 @@
   .list-movie {
     margin-top: 2rem;
     margin-bottom: 2rem;
+
+    .loading {
+      margin-top: 2rem;
+      animation: blinker 1s linear infinite;
+
+      p {
+        margin-top: 1rem;
+        color: #BCBCBE;
+      }
+    }
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .list-genre {
+      button {
+        border-radius: 5px;
+        padding: 5px 15px;
+        color: #FF0078;
+        border: 1px solid #828187;
+        margin-right: 1rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+
+        &:hover {
+          background: #FF0078;
+          color: #fff;
+        }
+      }
+    }
   }
 }
 
@@ -181,6 +213,7 @@
     margin-bottom: 0;
     color: #4A4A62;
     font-size: 16px;
+    text-align: left;
   }
 
   .card-text {
@@ -191,6 +224,7 @@
     margin-bottom: 0;
     color: #BFBEC3;
     font-size: 14px;
+    text-align: left;
   }
 
   .card-body {

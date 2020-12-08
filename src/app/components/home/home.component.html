@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container scroll-wrap" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
   <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
     <swiper class="swiper-container" [config]="config" fxFlex="auto">
       <div *ngFor="let slide of slides" class="swiper-slide">
         <div class="row wrap-content-slider">
-          <div class="col-6">
+          <div class="col-sm-6 col-xs-12">
             <div class="pull-left card-left">
               <h3>WRATH OF THE TITANS</h3>
               <ul class="list-inline">
@@ -20,7 +20,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6 col-xs-12">
             <div class="pull-right">
               <div class="card card-right">
                 <div class="card-body text-center">
@@ -52,9 +52,9 @@
           <li [ngbNavItem]="1">
             <a ngbNavLink>Popular</a>
             <ng-template ngbNavContent>
-                <div class="row">
-                  <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let item of listPopular; trackBy: trackByFn; let i = index">
-                    <div class="card card-poster">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let item of listPopular; trackBy: trackByFn; let i = index">
+                  <div class="card card-poster">
                     <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+ item.poster_path" alt="item.original_title">
                     <div class="card-body">
                       <p class="card-title" title="{{item.title}}">{{item.title}}</p>
@@ -64,8 +64,8 @@
                       <span class="average">{{item.vote_average}}</span>
                     </div>
                   </div>
-                  </div>
                 </div>
+              </div>
             </ng-template>
           </li>
           <li [ngbNavItem]="2">
@@ -74,15 +74,15 @@
               <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let item of listTopRated; trackBy: trackByFn; let i = index">
                   <div class="card card-poster">
-                  <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+ item.poster_path" alt="item.original_title">
-                  <div class="card-body">
-                    <p class="card-title" title="{{item.title}}">{{item.title}}</p>
-                    <p class="card-text">
-                      <span class="genre">{{item.genre}} </span>
-                    </p>
-                    <span class="average">{{item.vote_average}}</span>
+                    <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+ item.poster_path" alt="item.original_title">
+                    <div class="card-body">
+                      <p class="card-title" title="{{item.title}}">{{item.title}}</p>
+                      <p class="card-text">
+                        <span class="genre">{{item.genre}} </span>
+                      </p>
+                      <span class="average">{{item.vote_average}}</span>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </ng-template>
@@ -93,29 +93,31 @@
               <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let item of listUpcoming; trackBy: trackByFn; let i = index">
                   <div class="card card-poster">
-                  <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+ item.poster_path" alt="item.original_title">
-                  <div class="card-body">
-                    <p class="card-title" title="{{item.title}}">{{item.title}}</p>
-                    <p class="card-text">
-                      <span class="genre">{{item.genre}} </span>
-                    </p>
-                    <span class="average">{{item.vote_average}}</span>
+                    <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w300/'+ item.poster_path" alt="item.original_title">
+                    <div class="card-body">
+                      <p class="card-title" title="{{item.title}}">{{item.title}}</p>
+                      <p class="card-text">
+                        <span class="genre">{{item.genre}} </span>
+                      </p>
+                      <span class="average">{{item.vote_average}}</span>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </ng-template>
           </li>
           <li [ngbNavItem]="4">
-            <a ngbNavLink>Genre</a>
+            <a ngbNavLink>Genre
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+              </svg>
+            </a>
             <ng-template ngbNavContent>
-              <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-                Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-                egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-                tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-                magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
-                neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              <div class="list-genre">
+                <button color="primary" aria-label="Set Genres filter" *ngFor="let genre of listGenre">
+                  {{genre.name}}
+                </button>
+              </div>
             </ng-template>
           </li>
         </ul>
@@ -126,8 +128,12 @@
           </ul>
         </div>
       </div>
-      <div class="col-12 list-movie">
+      <div class="col-12 list-movie text-center">
         <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        <div class="loading" [hidden]="!isLoading">
+          <img src="./assets/images/loading-icon.png" alt="" style="height: 30px">
+          <p>LOADING</p>
+        </div>
       </div>
     </div>
 

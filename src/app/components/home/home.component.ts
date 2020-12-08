@@ -34,8 +34,12 @@ export class HomeComponent implements OnInit {
     'Third slide'
   ];
   active = 1;
+  nextId = 1;
+  isLoading = true;
 
-  public disabled: boolean = false;
+  page_popular = 1;
+  page_top = 1;
+  page_upcoming = 1;
 
   public config: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -96,15 +100,23 @@ export class HomeComponent implements OnInit {
   }
 
   getListPopularMovies() {
-    const params = {};
+    this.isLoading = true;
+    const params = {
+      page: this.page_popular
+    };
     this.service.getListPopularMovies(params).subscribe(
       res => {
         try {
-          this.listPopular = res.results;
-          this.listPopular.map((item: any) => {
-            item['genre'] = this.getGenre(item.genre_ids).join(', ');
-          })
-          this.refresh();
+          setTimeout(() => {
+            this.listPopular = this.listPopular.concat(res.results);
+            console.log(this.listPopular);
+
+            this.listPopular.map((item: any) => {
+              item['genre'] = this.getGenre(item.genre_ids).join(', ');
+            });
+            this.isLoading = false;
+            this.refresh();
+          }, 1000);
         } catch (e) {
           console.log(e);
         }
@@ -116,15 +128,21 @@ export class HomeComponent implements OnInit {
   }
 
   getListTopratedMovies() {
-    const params = {};
+    this.isLoading = true;
+    const params = {
+      page: this.page_top
+    };
     this.service.getListTopratedMovies(params).subscribe(
       res => {
         try {
-          this.listTopRated = res.results;
-          this.listTopRated.map((item: any) => {
-            item['genre'] = this.getGenre(item.genre_ids).join(', ');
-          })
-          this.refresh();
+          setTimeout(() => {
+            this.listTopRated = this.listTopRated.concat(res.results);
+            this.listTopRated.map((item: any) => {
+              item['genre'] = this.getGenre(item.genre_ids).join(', ');
+            });
+            this.isLoading = false;
+            this.refresh();
+          }, 1000);
         } catch (e) {
           console.log(e);
         }
@@ -136,15 +154,21 @@ export class HomeComponent implements OnInit {
   }
 
   getListUpcomingMovies() {
-    const params = {};
+    this.isLoading = true;
+    const params = {
+      page: this.page_upcoming
+    };
     this.service.getListUpcomingMovies(params).subscribe(
       res => {
         try {
-          this.listUpcoming = res.results;
-          this.listUpcoming.map((item: any) => {
-            item['genre'] = this.getGenre(item.genre_ids).join(', ');
-          })
-          this.refresh();
+          setTimeout(() => {
+            this.listUpcoming = this.listUpcoming.concat(res.results);
+            this.listUpcoming.map((item: any) => {
+              item['genre'] = this.getGenre(item.genre_ids).join(', ');
+            });
+            this.isLoading = false;
+            this.refresh();
+          }, 1000);
         } catch (e) {
           console.log(e);
         }
@@ -182,6 +206,8 @@ export class HomeComponent implements OnInit {
 
   navChanged(event) {
     console.log('navChanged', event);
+    this.nextId = event.nextId;
+
     switch (event.nextId) {
       case 1:
         if (this.listPopular.length <= 0) {
@@ -190,24 +216,37 @@ export class HomeComponent implements OnInit {
         break;
       case 2:
         if (this.listTopRated.length <= 0) {
-          this.getListPopularMovies();
+          this.getListTopratedMovies();
         }
-        this.getListTopratedMovies();
         break;
       case 3:
         if (this.listUpcoming.length <= 0) {
-          this.getListPopularMovies();
+          this.getListUpcomingMovies();
         }
-        this.getListUpcomingMovies();
         break;
       case 4:
 
         break;
+    }
+  }
 
-
-      default:
+  onScroll() {
+    console.log('scrolled!!');
+    switch (this.nextId) {
+      case 1:
+        this.page_popular++;
+        this.getListPopularMovies();
+        break;
+      case 2:
+        this.page_top++;
+        this.getListTopratedMovies();
+        break;
+      case 3:
+        this.page_upcoming++;
+        this.getListUpcomingMovies();
         break;
     }
+
   }
 
 }
