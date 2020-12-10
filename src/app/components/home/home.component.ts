@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   active = 1;
   nextId = 1;
   isLoading = true;
+  title = 'karros';
 
   page_popular = 1;
   page_top = 1;
