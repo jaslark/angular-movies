@@ -108,7 +108,6 @@ export class HomeComponent implements OnInit {
     this.service.getListPopularMovies(params).subscribe(
       res => {
         try {
-          setTimeout(() => {
             this.listPopular = this.listPopular.concat(res.results);
             console.log(this.listPopular);
 
@@ -117,7 +116,6 @@ export class HomeComponent implements OnInit {
             });
             this.isLoading = false;
             this.refresh();
-          }, 1000);
         } catch (e) {
           console.log(e);
         }
@@ -136,14 +134,12 @@ export class HomeComponent implements OnInit {
     this.service.getListTopratedMovies(params).subscribe(
       res => {
         try {
-          setTimeout(() => {
             this.listTopRated = this.listTopRated.concat(res.results);
             this.listTopRated.map((item: any) => {
               item['genre'] = this.getGenre(item.genre_ids).join(', ');
             });
             this.isLoading = false;
             this.refresh();
-          }, 1000);
         } catch (e) {
           console.log(e);
         }
@@ -162,14 +158,12 @@ export class HomeComponent implements OnInit {
     this.service.getListUpcomingMovies(params).subscribe(
       res => {
         try {
-          setTimeout(() => {
             this.listUpcoming = this.listUpcoming.concat(res.results);
             this.listUpcoming.map((item: any) => {
               item['genre'] = this.getGenre(item.genre_ids).join(', ');
             });
             this.isLoading = false;
             this.refresh();
-          }, 1000);
         } catch (e) {
           console.log(e);
         }

@@ -49,7 +49,7 @@ ___
 git clone --depth 1 https://github.com/jaslark/angular-movies.git
 cd angular-movies
 npm install
-ng serve
+ng serve and go to http://localhost:4200/
 ```
 
 ## Development server
